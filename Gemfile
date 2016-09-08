@@ -15,6 +15,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
+gem 'less-rails' 
+gem 'twitter-bootstrap-rails'
+gem 'business_time'
+gem 'holiday_jp'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

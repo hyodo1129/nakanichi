@@ -1,2 +1,42 @@
-<%= link_to 'Signin with Google', user_google_omniauth_authorize_path %>
+<div class="row">
+  <div class="col-sm-3">
+    <h4>こんにちは <%= current_user.name %> さん</h4>
+  </div>
+  <div class="col-sm-4">
+    <% if user_signed_in? %>
+      <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-primary'  %>
+    <% end %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-6">
+    <%# TODO: Time.current 使いたいけど、タイムゾーンの設定めんどうなのであとで %>
+    <label class="col-sm-2 control-label current-time">
+      <%= Time.now.strftime('%Y/%m/%d') %>
+    </label>
+    までの実績
+    <input type="text" id="name" class="form-control seisan_hour">
+
+    <label class="col-sm-2 control-label">
+      <%= Time.now.strftime('%Y/%m/%d') %>
+    </label>
+    以降有給休暇取得予定日
+    <input type="text" id="name" class="form-control salaried">
+  </div>
+
+  <div class="col-sm-6">
+    <label class="col-sm-2 control-label">残り時間</label>
+    <label class="reminning-work-time">
+    </label>時間
+  </div>   
+
+  <div class="col-sm-6">
+    <label class="col-sm-2 control-label">残営業日</label>
+    <label class="reminning-work-day">
+    </label>日
+  </div>   
+</div>
+
+
 

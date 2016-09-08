@@ -4,12 +4,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
-      #sign_in_and_redirect @user, event: :authentication
-      render json: 'hoge'
+      sign_in_and_redirect @user, event: :authentication
     else
       session['devise.google_data'] = request.env['omniauth.auth']
-#      redirect_to new_user_registration_url
-      render json: 'fuge'
+      redirect_to home_index_url
     end
   end
 end
