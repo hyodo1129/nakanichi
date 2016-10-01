@@ -12,18 +12,18 @@ class MyPage {
     this.jsWorkDay = $('.js-reminning-work-day');
   }
 
-	async start() {
-		console.log('start');
+  async start() {
+    console.log('start');
     this.jsAchieveHour.on('change', () => {
       this.getCalcResult();
     });
     this.jsPaidLeavePlan.on('change', () => {
       this.getCalcResult();
     });
-		await sleep(2000);
-		console.log('This page is nakanichi');
-		console.log('end');
-	}
+    await sleep(2000);
+    console.log('This page is nakanichi');
+    console.log('end');
+  }
 
   getCalcResult() {
     axios({
@@ -46,6 +46,6 @@ class MyPage {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	const myPage = new MyPage();
-	myPage.start();
+  const myPage = new MyPage();
+  myPage.start();
 });
