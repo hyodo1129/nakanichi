@@ -40,10 +40,11 @@ ActiveRecord::Schema.define(version: 20161009112609) do
 
   create_table "work_times", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "operate_time", default: 0, null: false
-    t.datetime "operate_date",             null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "yyyymm",       default: "", null: false
+    t.integer  "operate_time", default: 0,  null: false
+    t.datetime "operate_date",              null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["user_id"], name: "index_work_times_on_user_id", using: :btree
   end
 
