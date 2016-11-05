@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826015837) do
+ActiveRecord::Schema.define(version: 20161009112609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20160826015837) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "work_times", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "yyyymm",                  default: "", null: false
+    t.integer  "until_current_work_time", default: 0,  null: false, comment: "稼働時間"
+    t.integer  "holiday_plan",            default: 0,  null: false, comment: "休暇取得予定日数"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.index ["user_id"], name: "index_work_times_on_user_id", using: :btree
   end
 
 end
